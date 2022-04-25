@@ -1,3 +1,4 @@
+import Botao from "../components/Botao";
 import Layout from "../components/Layout";
 import Tabela from "../components/Tabela";
 import Cliente from "../core/Cliente";
@@ -9,8 +10,6 @@ export default function Home() {
     new Cliente('Bob', 12, '2'),
     new Cliente('Carlos', 59, '3'),
     new Cliente('David', 23, '4'),
-    new Cliente('Ed', 47, '5'),
-    new Cliente('Fausto', 19, '6'),
   ]
 
   function clienteSelecionado(cliente: Cliente){
@@ -27,9 +26,15 @@ export default function Home() {
       bg-gradient-to-r from-blue-500 to-purple-500
       text-white
     `}>
-    <Layout titulo="Cadastro de usuarios">
-      <Tabela clientes={clientes} clienteSelecionado={clienteSelecionado} clienteExcluido={clienteExcluido}></Tabela>
-    </Layout>
+      <Layout titulo="Cadastro de usuarios">
+        <div className="flex justify-end">
+          <Botao cor="green" className="mb-4">Cadastro de cliente</Botao>
+        </div>
+        <Tabela clientes={clientes} 
+          clienteSelecionado={clienteSelecionado} 
+          clienteExcluido={clienteExcluido}
+        />
+      </Layout>
     </div>
   )
 }
